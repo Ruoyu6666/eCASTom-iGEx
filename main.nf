@@ -8,7 +8,7 @@ params.reference_panel = null
 parameters.imputation_type = "genotype"
 params.imputation_method = "priler"
 #! params.preprocessing_config = "config/preprocessing.json"
-#! params.chunk_size = 10000
+params.chunk_size = 10000
 #! params.help = false
 
 

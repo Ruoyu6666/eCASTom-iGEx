@@ -26,7 +26,7 @@ InfoFold <- args$InfoFold
 no_zip <- args$no_zip
 outFold <- args$outFold
 
-
+#####################################################################
 # outFold <- '/ziller/lucia/eQTL_PROJECT_CMC/OUTPUT_CMC_SCRIPTS_v1/predict_All_oldScale/train_Control50/200kb/'
 # outTrain_fold <- '/ziller/lucia/eQTL_PROJECT_CMC/OUTPUT_CMC_SCRIPTS_v1/train_Control50_oldScale/200kb/'
 # genoDat_file <- '/ziller/lucia/eQTL_PROJECT_CMC/INPUT_DATA_SCRIPTS_v1/Genotyping_data/Genotype_dosage_'
@@ -34,6 +34,7 @@ outFold <- args$outFold
 # functR <- '/ziller/lucia/eQTL_PROJECT_CMC/RSCRIPTS/SCRIPTS_v1/ElNet_withPrior_functions_run.R'
 # cis_thres <- 200000
 # InfoFold <- '/ziller/lucia/eQTL_PROJECT_CMC/OUTPUT_CMC_SCRIPTS_v1/'
+#####################################################################
 
 cis_ann <- paste0(cis_thres/10^5, 'e+05')
 
@@ -41,13 +42,13 @@ covDat <- read.table(covDat_file, header = T, sep = '\t', stringsAsFactors = F, 
 sampleAnn <- covDat[, colnames(covDat) %in% c('Individual_ID', 'genoSample_ID')]
 M <- nrow(sampleAnn)
 
-# Load model
+#### load model ####
 all_Chroms <- paste0('chr',1:22)
 geneInfo <- read.table(sprintf('%sresPrior_regEval_allchr.txt', outTrain_fold), header = T, stringsAsFactors = F)
 betaCoeff <- get(load(sprintf('%sresPrior_regCoeffSnps_allchr.RData', outTrain_fold)))
 
 
-# Predict for each chromosome
+# predict for each chromosome
 pExp <- vector(mode = 'list', length = length(all_Chroms))
 
 for(i in 1:length(all_Chroms)){
@@ -87,6 +88,3 @@ pExp_fin <- cbind(geneInfo, pExp)
 # save
 write.table(file = sprintf('%spredictedExpression.txt', outFold), x = pExp_fin, col.names = T, row.names = F, sep  = '\t', quote  = F)
 if(!no_zip){system(paste("gzip",sprintf('%spredictedExpression.txt', outFold)))}
-
-
-
