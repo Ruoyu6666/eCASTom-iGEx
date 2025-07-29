@@ -1,16 +1,35 @@
-/*
-Harmonizing variant sets between reference models and new data
-For custom genotype data to work with PriLer reference models, it must be processed accordingly. 
+// Harmonizing variant sets between reference models and new data
+//For custom genotype data to work with PriLer reference models, it must be processed accordingly. 
 
-First, variants must be filtered to leave only SNPs present in the reference model.
+//First, variants must be filtered to leave only SNPs present in the reference model.
 
-Second, the definition of reference (REF) and alternative (ALT) alleles must be the same as in the reference model. 
-Depending on the initial processing of the data, this might not be the case (e.g. when alleles are major/minor-coded). 
+//Second, the definition of reference (REF) and alternative (ALT) alleles must be the same as in the reference model. 
+//Depending on the initial processing of the data, this might not be the case (e.g. when alleles are major/minor-coded). 
 
-Finally (recommended), the frequency of the alternative alleles must not deviate strongly from the data used to train the model, as it can negatively affect the performance.
+//Finally (recommended), the frequency of the alternative alleles must not deviate strongly from the data used to train the model, as it can negatively affect the performance.
 
-These steps are achieved using common genetics software as well as two custom scripts provided with CASTom-iGEx in Software/model_prediction/.
-*/
+//These steps are achieved using common genetics software as well as two custom scripts provided with CASTom-iGEx in Software/model_prediction/.
+
+
+process SUMMARIZE_VARIANTS {
+    tag "chr${chr}"
+    input:
+        val chr
+        path bfile_prefix  // Prefix path to .bed/.bim/.fam (no file extension)
+
+    output:
+        path "exampleDataset_chr${chr}.afreq"
+
+    script:
+        """
+        plink2 \\
+            --bfile ${bfile_prefix} \\
+            --chr ${chr} \\
+            --freq cols=+pos \\
+            --out exampleDataset_chr${chr}
+        """
+}
+
 
 process summarize_variants{
     label 'summarize_variants'
@@ -27,8 +46,7 @@ process summarize_variants{
 
     script:
     """
-    This process summarizes the variants in the input VCF file.
-    It takes a sample ID and a VCF file as input, and outputs a summary report.
+    This process summarizes the variants in the input .gen format file.
     """
 }
 
