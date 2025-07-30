@@ -8,7 +8,7 @@ process FORMAT_DOSAGE_PRILER {
         val dosage_thresh
         path out_dir
     output:
-        path "${out_dir}/example_chr${chr}_dosage.txt"
+        path "${out_dir}/exampleDataset_filtered_ref_alt_dosage_chr${chr}.txt"
     script:
         """
         Rscript ${script_path} \
@@ -19,3 +19,4 @@ process FORMAT_DOSAGE_PRILER {
             --outDosageFold ${out_dir}
         """
 }
+

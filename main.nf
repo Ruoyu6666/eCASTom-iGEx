@@ -1,7 +1,6 @@
-/*
 #!/usr/bin/env nextflow
 nextflow.enable.dsl = 2
-
+/*
 // Pipeline parameters
 params.input_gen = null
 params.output_dir = "results"
@@ -33,7 +32,7 @@ workflow {
         .map { chr, bed, bim, fam ->
             tuple(chr, path("exampleDataset_chr${chr}"))
         }
-        | FREQ_SUMMARY
+        | SUMMARIZE_FREQ
 
     // Step 2: Match variants with reference model
     matched_channel = freq_channel
@@ -69,7 +68,7 @@ workflow {
                 chr,
                 traw_file,
                 file("exampleDataset_chr${chr}.fam"),
-                file("${params.script_dir}/formatGenotypeDosage.R"),
+                file("${params.script_dir}/format_genotype_dosage.R"),
                 "0.1",
                 file(params.data)
             )
