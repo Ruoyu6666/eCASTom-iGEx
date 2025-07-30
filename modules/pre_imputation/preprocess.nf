@@ -56,34 +56,36 @@ process SUMMARIZE_FREQ {
 
 /* 
 Step 2
-Match the information about the variants between the new data and the reference model using a custom script
+Match the information about the variants between the new data and the reference model using a custom script in CASTom-iGEx.
+The script produces harmonized variant information files Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr... 
+and a file with the overall match statistics example_match_stats.txt, which contains variant filtering details for all chromosomes.
 */
 process MATCH_VARIANTS {
-    tag "chr${chr}"
+    tag "$cohort_name"
+
     input:
-        val chr
-        path path_data         // Path to the data directory
-        path freq_file         // ${path_data}/freq/exampleDataset_chr${chr}.afreq
-        path var_info_file     // Genotype_VariantsInfo_matched_*_chr${chr}.txt
-        val cohort_name
-        val alt_frq_col
-        val alt_frq_diff
-        path out_dir
-        path script_path       // path to match_genotype_variants.R
+        path path_data             // Path to the data directory
+        path var_info_file_prefix  // Path to the reference variant annotation files: ../GTEx/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_
+        val cohort_name            // Name of the cohort, e.g., "example"  
+        val alt_frq_col            // Column name for alternative allele frequency in the reference variant annotation file
+        val alt_frq_diff           // Threshold for alternative allele frequency difference
+        path script_path           // path to match_genotype_variants.R
 
     output:
-        path "Genotype_VariantsInfo_matched_*_example_chr${chr}"   // harmonized variant info
-        path "${cohort_name}_match_stats.txt" optional     // only emitted once (e.g. chr1)
-
+        // Harmonized variant info file
+        path "${path_data}/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_${cohortName}_chr*.txt", emit: harmonized_info
+        path "${path_data}/matched/${cohort_name}_match_stats.txt", emit: match_stats
     script:
         """
+        mkdir -p "${path_data}/matched"
+
         Rscript ${script_path} \\
-            --varInfoFile ${var_info_file} \\
-            --aFreqFile ${freq_file.baseName} \\
+            --varInfoFile ${var_info_file_prefix}   \\
+            --aFreqFile ${path_data}/freq/exampleDataset_ \\
             --cohortName ${cohort_name} \\
             --altFrqColumn ${alt_frq_col} \\
             --altFrqDiff ${alt_frq_diff} \\
-            --outInfoFold ${out_dir}
+            --outInfoFold ${path_data}/matched/
         """
 }
 
@@ -92,20 +94,23 @@ Harmonized variant information files are used to filter the genetic data accordi
 */
 process FILTER_REF_ALT {
     tag "chr${chr}"
+
     input:
         val chr
-        path bfile_prefix
-        path harmonized_info      // Genotype_VariantsInfo_matched_..._example_chr${chr}
-        path output_dir
+        path path_data        
+        // bfile_prefix: Prefix path to the .bed/.bim/.fam files
+        path harmonized_info  // ../matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr${chr}
     output:
-        path "${output_dir}/exampleDataset_filtered_ref_alt_chr${chr}.traw"
+        path "${path_data}/filtered/exampleDataset_filtered_ref_alt_chr${chr}.traw"
 
     script:
         """
+        mkdir -p "${path_data}/filtered"
+
         cut -f 3 ${var_info_file} > snps_chr${chr}.extract
 
         plink2 \\
-            --bfile ${bfile_prefix} \\
+            --bfile "${path_data}/bgen/exampleDataset" \\
             --chr ${chr} \\
             --extract snps_chr${chr}.extract \\
             --ref-allele force ${var_info_file} 6 3 \\
