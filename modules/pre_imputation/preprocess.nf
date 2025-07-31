@@ -1,57 +1,30 @@
-/* 
-Step 0
-Convert .gen files to binary format (.bed/.bim/.fam) using the provided .sample file.
-The output is a tuple containing the chromosome number and paths to the generated files.
-*/
-process GEN_TO_BED {
-    tag "chr${chr}"         // Split by chromosomes
-    input:
-        val chr
-        path gen_file       // Path to the .gen file for the chromosome
-        path sample_file    // Path to the .sample file
-        path path_data      // Path to the data directory
-    
-    output:
-        tuple val(chr), path("${path_data}/bgen/exampleDataset_chr${chr}.bed"), \
-                        path("${path_data}/bgen/exampleDataset_chr${chr}.bim"), \
-                        path("${path_data}/bgen/exampleDataset_chr${chr}.fam")
-    script:
-        """
-        mkdir -p "${path_data}/bgen"
-
-        plink2 --gen ${gen_file} \
-               --sample ${sample_file} \
-               --make-bed \
-               --out ${path_to_data}/bgen/exampleDataset_chr${chr}
-        """
-}
-
-
-/* 
+/*
 Step 1
-Summarize the information about the variants in the example dataset including alternative allele frequencies
-This command produces .afreq files per each chromosome.
+Calculate allele frequencies for the variants in the .bgen files using PLINK2.
+The outputs are .afrq files for each chromosome with variant frequencies.
 */
 process SUMMARIZE_FREQ {
     tag "chr${chr}"
+    
     input:
         val chr
-        path path_data  // Prefix path to .bed/.bim/.fam
+        val dataset_name    // Name of the dataset, e.g., "exampleDataset"
+        path path_data      // Path to exampleDataset.bed/.bim/.fam files
+    
     output:
-        path "${path_data}/freq/exampleDataset_chr${chr}.afreq"
-
+        path "${path_data}/freq/${dataset_name}_chr${chr}.afreq", emit: freq_file
+    
     script:
         """
-        mkdir -p "${path_data}/freq"
+        mkdir -p "${path_data}/freq/"
 
         plink2 \\
-            --bfile ${path_data} \\
+            --bfile "${path_data}/${dataset_name}" \\
             --chr ${chr} \\
             --freq cols=+pos \\
-            --out ${path_data}/freq/exampleDataset_chr${chr}
+            --out "${path_data}/freq/${dataset_name}_chr${chr}"
         """
 }
-
 
 
 /* 
@@ -64,8 +37,9 @@ process MATCH_VARIANTS {
     tag "$cohort_name"
 
     input:
-        path path_data             // Path to the data directory
-        path var_info_file_prefix  // Path to the reference variant annotation files: ../GTEx/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_
+        path path_data
+        val dataset_name
+        path var_info_file_prefix  // Path to the reference variant annotation files: ${path_to_figshare}/GTEx/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_
         val cohort_name            // Name of the cohort, e.g., "example"  
         val alt_frq_col            // Column name for alternative allele frequency in the reference variant annotation file
         val alt_frq_diff           // Threshold for alternative allele frequency difference
@@ -89,7 +63,9 @@ process MATCH_VARIANTS {
         """
 }
 
-/* Step 3
+
+/* 
+Step 3
 Harmonized variant information files are used to filter the genetic data accordingly using PLINK
 */
 process FILTER_REF_ALT {
@@ -99,7 +75,7 @@ process FILTER_REF_ALT {
         val chr
         path path_data        
         // bfile_prefix: Prefix path to the .bed/.bim/.fam files
-        path harmonized_info  // ../matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr${chr}
+        path harmonized_info  // path_data/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr${chr}
     output:
         path "${path_data}/filtered/exampleDataset_filtered_ref_alt_chr${chr}.traw"
 
@@ -107,7 +83,7 @@ process FILTER_REF_ALT {
         """
         mkdir -p "${path_data}/filtered"
 
-        cut -f 3 ${var_info_file} > snps_chr${chr}.extract
+        cut -f 3 ${harmonized_info} > snps_chr${chr}.extract
 
         plink2 \\
             --bfile "${path_data}/bgen/exampleDataset" \\
