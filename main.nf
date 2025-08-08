@@ -1,78 +1,59 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl = 2
-/*
-// Pipeline parameters
-params.input_gen = null
-params.output_dir = "results"
-params.min_maf = 0.01 // Minimum Minor Allele Frequency for QC
-params.reference_panel = "path/to/reference_panel.vcf.gz" // Path to reference panel
-parameters.imputation_type = "genotype"
-params.imputation_method = "priler"
-#! params.preprocessing_config = "config/preprocessing.json"
-#! params.chunk_size = 10000
-#! params.help = false
-*/
 
+// Include the processes from the modules
+include { SUMMARIZE_FREQ } from './modules/genotype/pre_imputation/summarize_freq.nf'
+include { MATCH_VARIANTS } from './modules/genotype/pre_imputation/match_variants.nf'
+include { FILTER_REF_ALT } from './modules/genotype/pre_imputation/filter_ref_alt.nf'
+include { FORMAT_DOSAGE } from './modules/genotype/pre_imputation/format_dosage.nf'
 
+// Define workflow
 workflow {
+    // Channel for chromosomes 1 to 22
+    chr = Channel.from(1..22)
+    
+    channel_freq = SUMMARIZE_FREQ(
+        chr,
+        params.dataset_name,
+        params.data_path_prefix
+    ).freq_file
 
-    // Step 0: Convert .gen to .bed/.bim/.fam
-    gen_to_bed = Channel
-        .from(1..22)
-        .map { chr ->
-            tuple(chr,
-                  file("${params.gen_dir}/exampleDataset_chr${chr}.gen"),
-                  file("${params.sample_file}")
-            )
-        }
-        | GEN_TO_BED
-
-    // Step 1: Frequency calculation
-    freq_channel = gen_to_bed
-        .map { chr, bed, bim, fam ->
-            tuple(chr, path("exampleDataset_chr${chr}"))
-        }
-        | SUMMARIZE_FREQ
 
     // Step 2: Match variants with reference model
-    matched_channel = freq_channel
-        .map { chr, _ ->
-            tuple(
-                chr,
-                file("${params.data}/exampleDataset_chr${chr}.frq"),
-                file("${params.ref_info}"),
-                "example",
-                "EXP_FREQ_A1_GTEx",
-                "0.15",
-                file(params.data),
-                file("${params.script}/matchGenotypeModel.R")
-            )
-        }
-        | MATCH_VARIANTS
+    channel_match = MATCH_VARIANTS(
+        params.data_path_prefix,
+        params.dataset_name,
+        params.var_info_file_prefix,
+        params.cohort_name,
+        params.alt_frq_col,
+        params.alt_frq_diff,
+        params.script_match_variants
+    )
 
-    // Step 3: Filter + align alleles using matched info
-    matched_channel
-        .map { chr, matched_file ->
-            tuple(
-                chr,
-                file("exampleDataset_chr${chr}"), // bfile prefix from GEN_TO_BED
-                matched_file,
-                file(params.data)
-            )
+    channel_harmonized = chr.combine(MATCH_VARIANTS.out.harmonized_info.flatten())
+        .filter { chr, file -> 
+            file.getName().contains("chr${chr}.txt") 
         }
-        | FILTER_REF_ALT
+    
+    
+    // Step 3: Filter genetic data using harmonized variant information.
+    channel_filter = FILTER_REF_ALT(
+        channel_harmonized.map { it[0] },
+        params.data_path_prefix,
+        params.dataset_name,
+        channel_harmonized.map { it[1] }
+    ).traw_file
+
     // Step 4: Format dosage files for PRILER
-    filter_channel
-        .map { chr, traw_file ->
-            tuple(
-                chr,
-                traw_file,
-                file("exampleDataset_chr${chr}.fam"),
-                file("${params.script_dir}/format_genotype_dosage.R"),
-                "0.1",
-                file(params.data)
-            )
-        }
-        | FORMAT_DOSAGE
+    FORMAT_DOSAGE(
+        channel_filter.map { it[0] },
+        params.data_path_prefix,
+        params.dataset_name,
+        channel_filter.map { it[1] },
+        file("${params.data_path_prefix}/${params.dataset_name}.fam"),
+        params.script_format_dosage,
+        params.dosage_thresh
+    )
 
+    FORMAT_DOSAGE.out.formatted_dosage_file.view { "✨ Formatted dosage for chromosome ${it[0]}: ${it[1]}" }
 }
