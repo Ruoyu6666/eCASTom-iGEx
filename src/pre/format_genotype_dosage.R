@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
-.libPaths("~/R-4.2.2/library")
+.libPaths("~/R/library")
+
 suppressPackageStartupMessages({
   library(argparse)
   library(data.table)

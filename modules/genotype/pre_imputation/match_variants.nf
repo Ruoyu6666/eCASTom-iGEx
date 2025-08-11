@@ -23,13 +23,17 @@ process MATCH_VARIANTS {
     script:
         """
         mkdir -p "${data_path_prefix}/matched"
+
         module load palma/2023b GCC/13.2.0 R/4.4.1
+        
         Rscript ${script_path} \\
-            --varInfoFile ${var_info_file_prefix}   \\
+            --varInfoFile ${var_info_file_prefix}/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_   \\
             --aFreqFile ${data_path_prefix}/freq/exampleDataset_ \\
             --cohortName ${cohort_name} \\
             --altFrqColumn ${alt_frq_col} \\
             --altFrqDiff ${alt_frq_diff} \\
             --outInfoFold ${data_path_prefix}/matched/
+            
+        module load palma/2023a Java/17.0.6
         """
 }

@@ -30,7 +30,8 @@ module --force purge
 Everytime load
 ```bash
 module load palma/2023b GCC/13.2.0 R/4.4.1
-export R_LIBS_USER=" ~/R-4.4.1/library"
+module load palma/2022b GCC/12.2.0 OpenMPI/4.1.4 R/4.2.2
+export R_LIBS_USER=" ~/R-4.2.2/library"
 ```
 
 First time install requirements with custom script
@@ -124,6 +125,9 @@ nextflow run main.nf -profile docker \
   --results_dir "/results" \
   --tissue "Whole_Blood"
 ```
-
+```bash
 module load palma/2022b Java/17.0.6
-module load palma/2022b  GCC/12.2.0  OpenMPI/4.1.4 R/4.2.2
+```
+```bash
+module load palma/2022b GCC/12.2.0 OpenMPI/4.1.4 R/4.2.2
+```

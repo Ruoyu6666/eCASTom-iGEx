@@ -29,7 +29,7 @@ workflow {
         params.alt_frq_diff,
         params.script_match_variants
     )
-
+    
     channel_harmonized = chr.combine(MATCH_VARIANTS.out.harmonized_info.flatten())
         .filter { chr, file -> 
             file.getName().contains("chr${chr}.txt") 
