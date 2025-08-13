@@ -11,14 +11,14 @@ include { FORMAT_DOSAGE } from './modules/genotype/pre_imputation/format_dosage.
 workflow {
     // Channel for chromosomes 1 to 22
     chr = Channel.from(1..22)
-    
+    /*
     channel_freq = SUMMARIZE_FREQ(
         chr,
         params.dataset_name,
         params.data_path_prefix
     ).freq_file
-
-
+    
+    
     // Step 2: Match variants with reference model
     channel_match = MATCH_VARIANTS(
         params.data_path_prefix,
@@ -29,31 +29,30 @@ workflow {
         params.alt_frq_diff,
         params.script_match_variants
     )
-    
+
     channel_harmonized = chr.combine(MATCH_VARIANTS.out.harmonized_info.flatten())
         .filter { chr, file -> 
             file.getName().contains("chr${chr}.txt") 
         }
     
-    
     // Step 3: Filter genetic data using harmonized variant information.
     channel_filter = FILTER_REF_ALT(
-        channel_harmonized.map { it[0] },
+        chr,
         params.data_path_prefix,
         params.dataset_name,
-        channel_harmonized.map { it[1] }
+        "${params.data_path_prefix}/matched"
+        // channel_match.harmonized_info
     ).traw_file
+    */
 
     // Step 4: Format dosage files for PRILER
     FORMAT_DOSAGE(
-        channel_filter.map { it[0] },
         params.data_path_prefix,
         params.dataset_name,
-        channel_filter.map { it[1] },
-        file("${params.data_path_prefix}/${params.dataset_name}.fam"),
+       "${params.data_path_prefix}/${params.dataset_name}.fam",
         params.script_format_dosage,
         params.dosage_thresh
     )
 
-    FORMAT_DOSAGE.out.formatted_dosage_file.view { "✨ Formatted dosage for chromosome ${it[0]}: ${it[1]}" }
+    FORMAT_DOSAGE.out.formatted_dosage_file.view { "✨ Formatted dosage for chromosome ${chr}" }
 }

@@ -5,21 +5,23 @@ The script produces harmonized variant information files Genotype_VariantsInfo_m
 and a file with the overall match statistics example_match_stats.txt, which contains variant filtering details for all chromosomes.
 */
 process MATCH_VARIANTS {
-    tag "$cohort_name"
+    tag "${cohort_name} match variants"
+    publishDir "${data_path_prefix}/matched", mode: 'copy'
 
     input:
         path data_path_prefix
         val dataset_name
-        path var_info_file_prefix  // Path to the reference variant annotation files: ${path_to_figshare}/GTEx/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_
-        val cohort_name            // Name of the cohort, e.g., "example"  
-        val alt_frq_col            // Column name for alternative allele frequency in the reference variant annotation file
-        val alt_frq_diff           // Threshold for alternative allele frequency difference
-        path script_path           // path to match_genotype_variants.R
+        val var_info_file_prefix  // Path to the reference variant annotation files: ${path_to_figshare}/GTEx/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_
+        val cohort_name           // Name of the cohort, e.g., "example"  
+        val alt_frq_col           // Column name for alternative allele frequency in the reference variant annotation file
+        val alt_frq_diff          // Threshold for alternative allele frequency difference
+        path script_path          // path to match_genotype_variants.R
 
     output:
         // Harmonized variant info file
-        path "${data_path_prefix}/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_${cohortName}_chr*.txt", emit: harmonized_info
-        path "${data_path_prefix}/matched/${cohort_name}_match_stats.txt", emit: match_stats
+        path ("${data_path_prefix}/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_${cohort_name}_*"), emit: harmonized_info
+        path ("${data_path_prefix}/matched/${cohort_name}_match_stats.txt"), emit: match_stats
+    
     script:
         """
         mkdir -p "${data_path_prefix}/matched"
@@ -33,7 +35,6 @@ process MATCH_VARIANTS {
             --altFrqColumn ${alt_frq_col} \\
             --altFrqDiff ${alt_frq_diff} \\
             --outInfoFold ${data_path_prefix}/matched/
-            
-        module load palma/2023a Java/17.0.6
+        
         """
 }

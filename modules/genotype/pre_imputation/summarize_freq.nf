@@ -5,6 +5,7 @@ The outputs are .afrq files for each chromosome with variant frequencies.
 */
 process SUMMARIZE_FREQ {
     tag "chr${chr}"
+    publishDir "${data_path_prefix}/freq", mode: 'copy'
     
     input:
         val chr
@@ -12,7 +13,7 @@ process SUMMARIZE_FREQ {
         path data_path_prefix   // Path to exampleDataset.bed/.bim/.fam files
     
     output:
-        tuple val(chr), path("${data_path_prefix}/freq/${dataset_name}_chr${chr}.afreq"), emit: freq_file
+        path("${data_path_prefix}/freq/${dataset_name}_chr${chr}.afreq"), emit: freq_file
     
     script:
         """
