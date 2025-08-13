@@ -6,7 +6,7 @@ and a file with the overall match statistics example_match_stats.txt, which cont
 */
 process MATCH_VARIANTS {
     tag "${cohort_name} match variants"
-    publishDir "${data_path_prefix}/matched", mode: 'copy'
+    //publishDir "${data_path_prefix}/matched", mode: 'copy'
 
     input:
         path data_path_prefix

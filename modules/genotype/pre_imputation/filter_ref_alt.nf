@@ -5,7 +5,6 @@ Harmonized variant information files are used to filter the genetic data accordi
 
 process FILTER_REF_ALT {
     tag "chr${chr}"
-    publishDir "${data_path_prefix}/filtered", mode: 'copy'
 
     input:
         val chr
