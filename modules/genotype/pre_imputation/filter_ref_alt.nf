@@ -14,7 +14,7 @@ process FILTER_REF_ALT {
         path harmonized_info  // data_path_prefix/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr${chr}
     
     output:
-        path ("${data_path_prefix}/filtered/${dataset_name}_filtered_ref_alt_chr${chr}.traw"), emit: traw_file
+        path ("${data_path_prefix}/filtered/${dataset_name}_filtered_ref_alt_chr${chr}.*"), emit: traw_file
 
     script:
         """

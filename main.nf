@@ -6,11 +6,15 @@ include { SUMMARIZE_FREQ } from './modules/genotype/pre_imputation/summarize_fre
 include { MATCH_VARIANTS } from './modules/genotype/pre_imputation/match_variants.nf'
 include { FILTER_REF_ALT } from './modules/genotype/pre_imputation/filter_ref_alt.nf'
 include { FORMAT_DOSAGE } from './modules/genotype/pre_imputation/format_dosage.nf'
+include { IMPUTE_GENOTYPE_PRILER } from './modules/genotype/imputation/priler.nf'
+
+
+
 
 // Define workflow
 workflow {
     // Channel for chromosomes 1 to 22
-    chr = Channel.from(1..22)
+    chr = Channel.from(22)
     /*
     channel_freq = SUMMARIZE_FREQ(
         chr,
@@ -43,7 +47,7 @@ workflow {
         "${params.data_path_prefix}/matched"
         // channel_match.harmonized_info
     ).traw_file
-    */
+    
 
     // Step 4: Format dosage files for PRILER
     FORMAT_DOSAGE(
@@ -53,6 +57,19 @@ workflow {
         params.script_format_dosage,
         params.dosage_thresh
     )
+    
+    */
+    // Step 5: Impute genotype using PRILER
+    IMPUTE_GENOTYPE_PRILER(
+        params.data_path_prefix,
+        params.dataset_name,
+        params.tissue,
+        params.model_path_prefix,
+        params.covariates_file,
+        params.script_genotye_priler,
+    )
 
-    FORMAT_DOSAGE.out.formatted_dosage_file.view { "✨ Formatted dosage for chromosome ${chr}" }
+
+
+    //FORMAT_DOSAGE.out.formatted_dosage_file.view { "✨ Formatted dosage for chromosome ${chr}" }
 }

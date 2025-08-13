@@ -13,7 +13,7 @@ process FORMAT_DOSAGE {
         val dosage_thresh
     
     output:
-        path ("${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_dosage_chr*"), emit: formatted_dosage_file
+        path ("${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_chr*"), emit: formatted_dosage_file
     
     script:
         """

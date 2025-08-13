@@ -4,8 +4,10 @@ Based on https://github.com/zillerlab/CASTom-iGEx/wiki/Processing-genetic-data-t
 ## Preparation
 First time
 ```bash
-mkdir -p ~/R-4.2.2/library
+mkdir -p ~/R/library
+export R_LIBS_USER=" ~/R-4.2.2/library"
 ```
+
 Install plink
 ```bash
 mkdir -p ~/tools
@@ -27,20 +29,15 @@ Clean the environment at the beginning:
 module --force purge
 ```
 
-Everytime load
+load
 ```bash
 module load palma/2023b GCC/13.2.0 R/4.4.1
-module load palma/2022b GCC/12.2.0 OpenMPI/4.1.4 R/4.2.2
-export R_LIBS_USER=" ~/R-4.2.2/library"
 ```
 
 First time install requirements with custom script
 ```bash
 Rscript ${path_to_castom_folder}/install_requirements.R 
 ```
-
-
-Load module
 
 
 
@@ -51,13 +48,7 @@ module spider nextflow
 
 Before the "Nextflow/24.04.2" module is available to load, load palma/2024a
 ```bash
-module load palma/2024a
-```
-
-Then load nextflow
-
-```bash
-module load Nextflow/24.04.2
+module load palma/2024a Nextflow/24.04.2
 ```
 
 ......
@@ -127,8 +118,6 @@ nextflow run main.nf -profile docker \
 ```
 ```bash
 module load palma/2022b Java/17.0.6
-```
-```bash
-module load palma/2022b GCC/12.2.0 OpenMPI/4.1.4 R/4.2.2
+nextflow run main.nf
 ```
 

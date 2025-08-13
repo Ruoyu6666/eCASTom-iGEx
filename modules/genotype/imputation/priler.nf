@@ -1,24 +1,29 @@
 process IMPUTE_GENOTYPE_PRILER {
-    tag "${tissue}"
+    
+    tag "impute genotype with PRILER for ${tissue}"
+    
     input:
+        path data_path_prefix
+        val dataset_name
         val tissue
-        path dosage_prefix_dir
-        path covariates_file
-        path model_dir
-        path matched_info_prefix
+        path model_path_prefix
+        val covariates_file
         path script_path
-        path results_dir
+
     output:
-        path "${results_dir}/PriLer_prediction_${tissue}.txt"
+        path "${data_path_prefix}/results/PriLer_prediction_${tissue}.txt"
+    
     script:
         """
-        Rscript ${script_path} \
-            --genoDat_file ${dosage_prefix_dir}/exampleDataset_filtered_ref_alt_ \
-            --outTrain_fold ${model_dir}/tissues/${tissue}/ \
-            --genoInfo_file ${matched_info_prefix}/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_ \
-            --genoInfo_model_file ${model_dir}/genotype_info/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_ \
-            --InfoFold ${model_dir}/tissues/${tissue}/ \
-            --covDat_file ${covariates_file} \
-            --outFold ${results_dir}/
+        mkdir -p "${data_path_prefix}/results"
+
+        module load palma/2023b GCC/13.2.0 R/4.4.1
+
+        Rscript ${script_path} \\
+            --genoDat_file ${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_ \\
+            --covDat_file ${data_path_prefix}/${covariates_file} \\
+            --outFold ${data_path_prefix}/results/ \\
+            --outTrain_fold ${model_path_prefix}/tissues/${tissue}/ \\
+            --InfoFold ${model_path_prefix}/tissues/${tissue}/ \\
         """
 }
