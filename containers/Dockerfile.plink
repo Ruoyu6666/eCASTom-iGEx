@@ -1,0 +1,16 @@
+# Dockerfile.plink
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    wget \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PLINK
+RUN wget https://s3.amazonaws.com/plink2-assets/plink2_linux_avx2_20250817.zip \
+    && unzip plink2_linux_avx2_20250817.zip \
+    && mv plink2 /usr/local/bin/ \
+    && chmod +x /usr/local/bin/plink2 \
+    && rm plink2_linux_avx2_20250817.zip
+
+WORKDIR /work
