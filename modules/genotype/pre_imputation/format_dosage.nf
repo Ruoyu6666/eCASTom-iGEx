@@ -11,6 +11,7 @@ process FORMAT_DOSAGE {
         path fam_file
         path script_path
         val dosage_thresh
+        val dummy_trigger // Dummy trigger to ensure the process runs after FILTER_REF_ALT
     
     output:
         path ("${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_chr*"), emit: formatted_dosage_file
@@ -19,7 +20,7 @@ process FORMAT_DOSAGE {
         """
         mkdir -p "${data_path_prefix}/filtered_dosage"
 
-        # module load palma/2023b GCC/13.2.0 R/4.4.1
+        module load palma/2023b GCC/13.2.0 R/4.4.1
 
         Rscript ${script_path} \\
             --trawFile "${data_path_prefix}/filtered/${dataset_name}_filtered_ref_alt_"\\

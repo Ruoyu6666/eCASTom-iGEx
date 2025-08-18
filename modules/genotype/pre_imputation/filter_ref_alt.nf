@@ -11,6 +11,7 @@ process FILTER_REF_ALT {
         path data_path_prefix
         val dataset_name      // exampleDataset
         path harmonized_info  // data_path_prefix/matched/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_example_chr${chr}
+        val dummy_trigger // Dummy trigger to ensure the process runs after MATCH_VARIANTS
     
     output:
         path ("${data_path_prefix}/filtered/${dataset_name}_filtered_ref_alt_chr${chr}.*"), emit: traw_file

@@ -15,6 +15,7 @@ process MATCH_VARIANTS {
         val alt_frq_col           // Column name for alternative allele frequency in the reference variant annotation file
         val alt_frq_diff          // Threshold for alternative allele frequency difference
         path script_path          // path to match_genotype_variants.R
+        val dummy_trigger         // Dummy trigger to ensure the process runs after SUMMARIZE_FREQ
 
     output:
         // Harmonized variant info file
@@ -25,7 +26,7 @@ process MATCH_VARIANTS {
         """
         mkdir -p "${data_path_prefix}/matched"
 
-        # module load palma/2023b GCC/13.2.0 R/4.4.1
+        module load palma/2023b GCC/13.2.0 R/4.4.1
         
         Rscript ${script_path} \\
             --varInfoFile ${var_info_file_prefix}/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_   \\
@@ -34,6 +35,8 @@ process MATCH_VARIANTS {
             --altFrqColumn ${alt_frq_col} \\
             --altFrqDiff ${alt_frq_diff} \\
             --outInfoFold ${data_path_prefix}/matched/
+
+        echo "Variant matching done for cohort ${cohort_name}"
         
         """
 }

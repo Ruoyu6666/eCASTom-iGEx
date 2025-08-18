@@ -24,5 +24,7 @@ process SUMMARIZE_FREQ {
             --chr ${chr} \\
             --freq cols=+pos \\
             --out "${data_path_prefix}/freq/${dataset_name}_chr${chr}"
+
+        echo "Allele frequency calculate done"
         """
 }

@@ -2,3 +2,5 @@
 work/
 .nextflow/
 nextflow_app.sif
+predict.txt
+*.sif

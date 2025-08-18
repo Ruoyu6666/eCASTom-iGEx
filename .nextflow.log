@@ -1,0 +1,244 @@
+Aug-18 14:26:38.985 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf
+Aug-18 14:26:39.050 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Aug-18 14:26:39.072 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/r/rguo/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Aug-18 14:26:39.091 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-18 14:26:39.092 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-18 14:26:39.095 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-18 14:26:39.105 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-18 14:26:39.129 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-18 14:26:39.132 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-18 14:26:39.164 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/r/rguo/.nextflow/secrets/store.json
+Aug-18 14:26:39.167 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5a9800f8] - activable => nextflow.secret.LocalSecretsProvider@5a9800f8
+Aug-18 14:26:39.173 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-18 14:26:39.592 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Aug-18 14:26:39.606 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [cranky_wing] DSL2 - revision: 380fd6a9d2
+Aug-18 14:26:39.607 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-18 14:26:39.608 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-18 14:26:39.654 [main] DEBUG nextflow.Session - Session UUID: c8ea01d4-f5e0-41ca-9d36-71efcb310933
+Aug-18 14:26:39.655 [main] DEBUG nextflow.Session - Run name: cranky_wing
+Aug-18 14:26:39.655 [main] DEBUG nextflow.Session - Executor pool size: 4
+Aug-18 14:26:39.663 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-18 14:26:39.668 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-18 14:26:39.686 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (13:27 CEST)
+  System: Linux 5.14.0-427.33.1.el9_4.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.6+10
+  Encoding: UTF-8 (UTF-8)
+  Process: 250337@r01n10 [10.116.33.10]
+  CPUs: 4 - Mem: 93.1 GB (53.7 GB) - Swap: 0 (0)
+Aug-18 14:26:39.713 [main] DEBUG nextflow.Session - Work-dir: /home/r/rguo/scripts/eCASTom/work [gpfs]
+Aug-18 14:26:39.713 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/r/rguo/scripts/eCASTom/bin
+Aug-18 14:26:39.722 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-18 14:26:39.731 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-18 14:26:39.736 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Aug-18 14:26:39.757 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-18 14:26:39.766 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Aug-18 14:26:39.826 [main] DEBUG nextflow.Session - Session start
+Aug-18 14:26:39.999 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-18 14:26:40.443 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-18 14:26:40.444 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-18 14:26:40.451 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-18 14:26:40.457 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=93.1 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Aug-18 14:26:40.460 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Aug-18 14:26:40.486 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SUMMARIZE_FREQ': maxForks=0; fair=false; array=0
+Aug-18 14:26:40.573 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-18 14:26:40.573 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-18 14:26:40.574 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MATCH_VARIANTS': maxForks=0; fair=false; array=0
+Aug-18 14:26:40.590 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-18 14:26:40.590 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-18 14:26:40.591 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FILTER_REF_ALT': maxForks=0; fair=false; array=0
+Aug-18 14:26:40.612 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-18 14:26:40.612 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-18 14:26:40.613 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FORMAT_DOSAGE': maxForks=0; fair=false; array=0
+Aug-18 14:26:40.631 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-18 14:26:40.631 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-18 14:26:40.632 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'IMPUTE_GENOTYPE_PRILER': maxForks=0; fair=false; array=0
+Aug-18 14:26:40.643 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: IMPUTE_GENOTYPE_PRILER, FILTER_REF_ALT, SUMMARIZE_FREQ, FORMAT_DOSAGE, MATCH_VARIANTS
+Aug-18 14:26:40.646 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Aug-18 14:26:40.647 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SUMMARIZE_FREQ
+Aug-18 14:26:40.647 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MATCH_VARIANTS
+Aug-18 14:26:40.647 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FILTER_REF_ALT
+Aug-18 14:26:40.647 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FORMAT_DOSAGE
+Aug-18 14:26:40.648 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > IMPUTE_GENOTYPE_PRILER
+Aug-18 14:26:40.648 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_381b8f95210e843e: /home/r/rguo/scripts/eCASTom/modules/genotype/imputation/priler.nf
+  Script_36100c52dc966daa: /home/r/rguo/scripts/eCASTom/main.nf
+  Script_e3b6db9d15915103: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/summarize_freq.nf
+  Script_7f9443deafc988c7: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/filter_ref_alt.nf
+  Script_dad22f415a52ac47: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/format_dosage.nf
+  Script_1318c4ceaa17c8eb: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/match_variants.nf
+Aug-18 14:26:40.648 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-18 14:26:40.648 [main] DEBUG nextflow.Session - Session await
+Aug-18 14:26:40.861 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:40.875 [Task submitter] INFO  nextflow.Session - [0e/421fd4] Submitted process > SUMMARIZE_FREQ (chr2)
+Aug-18 14:26:40.893 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:40.896 [Task submitter] INFO  nextflow.Session - [52/ad8f48] Submitted process > SUMMARIZE_FREQ (chr3)
+Aug-18 14:26:40.904 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:40.906 [Task submitter] INFO  nextflow.Session - [f2/028fa1] Submitted process > SUMMARIZE_FREQ (chr6)
+Aug-18 14:26:40.915 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:40.916 [Task submitter] INFO  nextflow.Session - [c6/1eec43] Submitted process > SUMMARIZE_FREQ (chr1)
+Aug-18 14:26:41.524 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: SUMMARIZE_FREQ (chr3); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/52/ad8f48a55f12b54be33e35de220c3c]
+Aug-18 14:26:41.537 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-18 14:26:41.544 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:41.545 [Task submitter] INFO  nextflow.Session - [c6/1e9e8f] Submitted process > SUMMARIZE_FREQ (chr4)
+Aug-18 14:26:41.804 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: SUMMARIZE_FREQ (chr6); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/f2/028fa14fe0ac9d36235acf28ecc6e3]
+Aug-18 14:26:41.810 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:41.810 [Task submitter] INFO  nextflow.Session - [4d/2bb18c] Submitted process > SUMMARIZE_FREQ (chr7)
+Aug-18 14:26:41.828 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: SUMMARIZE_FREQ (chr1); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c6/1eec435065b728cd526a4e5d26c232]
+Aug-18 14:26:41.834 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:41.834 [Task submitter] INFO  nextflow.Session - [a5/932c1b] Submitted process > SUMMARIZE_FREQ (chr8)
+Aug-18 14:26:41.929 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: SUMMARIZE_FREQ (chr2); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/0e/421fd4d2fba4cb3e8130572144809b]
+Aug-18 14:26:41.958 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:41.958 [Task submitter] INFO  nextflow.Session - [c2/7bbadf] Submitted process > SUMMARIZE_FREQ (chr5)
+Aug-18 14:26:42.235 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: SUMMARIZE_FREQ (chr4); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c6/1e9e8f7f22556c8a4abf22f9651713]
+Aug-18 14:26:42.250 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:42.250 [Task submitter] INFO  nextflow.Session - [49/d61fe6] Submitted process > SUMMARIZE_FREQ (chr9)
+Aug-18 14:26:42.441 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: SUMMARIZE_FREQ (chr8); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/a5/932c1baba3cfc173310de014f9796d]
+Aug-18 14:26:42.449 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:42.449 [Task submitter] INFO  nextflow.Session - [c2/5afc11] Submitted process > SUMMARIZE_FREQ (chr13)
+Aug-18 14:26:42.479 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: SUMMARIZE_FREQ (chr7); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4d/2bb18cab27542089584da0db4c6045]
+Aug-18 14:26:42.491 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:42.491 [Task submitter] INFO  nextflow.Session - [2e/d71169] Submitted process > SUMMARIZE_FREQ (chr12)
+Aug-18 14:26:42.639 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: SUMMARIZE_FREQ (chr5); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c2/7bbadf7524c2805d6677bec8087454]
+Aug-18 14:26:42.668 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:42.669 [Task submitter] INFO  nextflow.Session - [89/66188f] Submitted process > SUMMARIZE_FREQ (chr10)
+Aug-18 14:26:42.816 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: SUMMARIZE_FREQ (chr9); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/49/d61fe675c75fe4c2351f1852d4b40a]
+Aug-18 14:26:42.831 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:42.832 [Task submitter] INFO  nextflow.Session - [0c/1ee72e] Submitted process > SUMMARIZE_FREQ (chr14)
+Aug-18 14:26:43.014 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: SUMMARIZE_FREQ (chr13); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c2/5afc117fa78c6c3e47c7903e03b000]
+Aug-18 14:26:43.034 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.034 [Task submitter] INFO  nextflow.Session - [24/9ca867] Submitted process > SUMMARIZE_FREQ (chr15)
+Aug-18 14:26:43.099 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: SUMMARIZE_FREQ (chr12); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/2e/d71169224d918527a22d9468b381f4]
+Aug-18 14:26:43.125 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.125 [Task submitter] INFO  nextflow.Session - [c3/a444cf] Submitted process > SUMMARIZE_FREQ (chr11)
+Aug-18 14:26:43.297 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: SUMMARIZE_FREQ (chr10); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/89/66188ff29705239fe828cf9202b8ce]
+Aug-18 14:26:43.306 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.307 [Task submitter] INFO  nextflow.Session - [9e/570b7a] Submitted process > SUMMARIZE_FREQ (chr16)
+Aug-18 14:26:43.447 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: SUMMARIZE_FREQ (chr14); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/0c/1ee72e1be03f37325191f15267f314]
+Aug-18 14:26:43.453 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.454 [Task submitter] INFO  nextflow.Session - [c9/5c5ced] Submitted process > SUMMARIZE_FREQ (chr17)
+Aug-18 14:26:43.483 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: SUMMARIZE_FREQ (chr15); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/24/9ca867f2172e44f9b7093cd8e1ae04]
+Aug-18 14:26:43.499 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.499 [Task submitter] INFO  nextflow.Session - [b7/2ff2f5] Submitted process > SUMMARIZE_FREQ (chr18)
+Aug-18 14:26:43.845 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: SUMMARIZE_FREQ (chr11); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c3/a444cfb13ba94f9ca660035ff873af]
+Aug-18 14:26:43.849 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.850 [Task submitter] INFO  nextflow.Session - [f7/383b0f] Submitted process > SUMMARIZE_FREQ (chr19)
+Aug-18 14:26:43.860 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: SUMMARIZE_FREQ (chr16); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/9e/570b7a0351b1ebd6ba2c778dd51a12]
+Aug-18 14:26:43.871 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.871 [Task submitter] INFO  nextflow.Session - [91/7c5bf7] Submitted process > SUMMARIZE_FREQ (chr21)
+Aug-18 14:26:43.914 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: SUMMARIZE_FREQ (chr17); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/c9/5c5ced694bb4e0225e6587e7bfe761]
+Aug-18 14:26:43.920 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:43.920 [Task submitter] INFO  nextflow.Session - [77/86fcf8] Submitted process > SUMMARIZE_FREQ (chr22)
+Aug-18 14:26:44.020 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: SUMMARIZE_FREQ (chr18); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/b7/2ff2f56ea8cfdf070d00463f6c5efe]
+Aug-18 14:26:44.029 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:44.029 [Task submitter] INFO  nextflow.Session - [42/24fdd5] Submitted process > SUMMARIZE_FREQ (chr20)
+Aug-18 14:26:44.326 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: SUMMARIZE_FREQ (chr21); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/91/7c5bf786fd0d1858b97ba698536a87]
+Aug-18 14:26:44.350 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: SUMMARIZE_FREQ (chr19); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/f7/383b0f4497adb9a6ea407ef0598724]
+Aug-18 14:26:44.375 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: SUMMARIZE_FREQ (chr22); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/77/86fcf816dfce1b28e9975048e56502]
+Aug-18 14:26:44.497 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: SUMMARIZE_FREQ (chr20); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/42/24fdd52af3c08e2bff36c7574c3571]
+Aug-18 14:26:44.516 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:26:44.517 [Task submitter] INFO  nextflow.Session - [fa/7c09ee] Submitted process > MATCH_VARIANTS (example match variants)
+Aug-18 14:29:24.931 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: MATCH_VARIANTS (example match variants); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/fa/7c09ee18678e3f3209af374f457c0c]
+Aug-18 14:29:24.985 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:24.986 [Task submitter] INFO  nextflow.Session - [ca/240687] Submitted process > FILTER_REF_ALT (chr2)
+Aug-18 14:29:24.994 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:24.994 [Task submitter] INFO  nextflow.Session - [2e/47cf7b] Submitted process > FILTER_REF_ALT (chr3)
+Aug-18 14:29:25.016 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:25.016 [Task submitter] INFO  nextflow.Session - [e1/a290d8] Submitted process > FILTER_REF_ALT (chr1)
+Aug-18 14:29:25.029 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:25.029 [Task submitter] INFO  nextflow.Session - [d4/39da19] Submitted process > FILTER_REF_ALT (chr6)
+Aug-18 14:29:30.232 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: FILTER_REF_ALT (chr6); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/d4/39da19779e822788e75aa7a68bb684]
+Aug-18 14:29:30.254 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:30.254 [Task submitter] INFO  nextflow.Session - [b1/ec1b1a] Submitted process > FILTER_REF_ALT (chr4)
+Aug-18 14:29:30.939 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: FILTER_REF_ALT (chr3); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/2e/47cf7b7fc7020fa6deb0aaf56cc6fa]
+Aug-18 14:29:30.945 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:30.945 [Task submitter] INFO  nextflow.Session - [14/780ddd] Submitted process > FILTER_REF_ALT (chr5)
+Aug-18 14:29:31.302 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: FILTER_REF_ALT (chr1); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/e1/a290d867f9b02ca30e9b63cf8a7e14]
+Aug-18 14:29:31.306 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:31.306 [Task submitter] INFO  nextflow.Session - [f3/e8cc9e] Submitted process > FILTER_REF_ALT (chr7)
+Aug-18 14:29:31.990 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: FILTER_REF_ALT (chr2); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ca/240687e74651a9ec783c31e2183576]
+Aug-18 14:29:32.009 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:32.010 [Task submitter] INFO  nextflow.Session - [ea/b5bbd5] Submitted process > FILTER_REF_ALT (chr11)
+Aug-18 14:29:36.044 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: FILTER_REF_ALT (chr11); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ea/b5bbd58ee49e14b3f7fb9a051178cc]
+Aug-18 14:29:36.059 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:36.059 [Task submitter] INFO  nextflow.Session - [ea/931496] Submitted process > FILTER_REF_ALT (chr8)
+Aug-18 14:29:36.114 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: FILTER_REF_ALT (chr7); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/f3/e8cc9e1a210f52868309d4a0728940]
+Aug-18 14:29:36.122 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:36.123 [Task submitter] INFO  nextflow.Session - [7f/158f9f] Submitted process > FILTER_REF_ALT (chr12)
+Aug-18 14:29:36.181 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: FILTER_REF_ALT (chr5); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/14/780dddf4ec53ba678f3d921178d690]
+Aug-18 14:29:36.193 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:36.193 [Task submitter] INFO  nextflow.Session - [9c/365f85] Submitted process > FILTER_REF_ALT (chr9)
+Aug-18 14:29:36.412 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: FILTER_REF_ALT (chr4); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/b1/ec1b1a8b4a2b0a35abc3b63e49ac42]
+Aug-18 14:29:36.432 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:36.432 [Task submitter] INFO  nextflow.Session - [34/e3bb98] Submitted process > FILTER_REF_ALT (chr13)
+Aug-18 14:29:39.664 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: FILTER_REF_ALT (chr13); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/34/e3bb980cff3c2c0aba4ef880b0296b]
+Aug-18 14:29:39.676 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:39.676 [Task submitter] INFO  nextflow.Session - [21/a75712] Submitted process > FILTER_REF_ALT (chr14)
+Aug-18 14:29:39.818 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: FILTER_REF_ALT (chr9); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/9c/365f858b9af9d1becb5fb7284b1fcd]
+Aug-18 14:29:39.832 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:39.832 [Task submitter] INFO  nextflow.Session - [1b/c45790] Submitted process > FILTER_REF_ALT (chr10)
+Aug-18 14:29:40.260 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: FILTER_REF_ALT (chr12); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/7f/158f9f4bc8f7209257bbdd2bdeaa66]
+Aug-18 14:29:40.272 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:40.272 [Task submitter] INFO  nextflow.Session - [15/6eaf82] Submitted process > FILTER_REF_ALT (chr17)
+Aug-18 14:29:40.769 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: FILTER_REF_ALT (chr8); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ea/9314961bccef3d237ca6f686cf051f]
+Aug-18 14:29:40.784 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:40.784 [Task submitter] INFO  nextflow.Session - [3a/6e5617] Submitted process > FILTER_REF_ALT (chr15)
+Aug-18 14:29:42.508 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: FILTER_REF_ALT (chr17); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/15/6eaf82b1c3a033e7ad44767fd07da5]
+Aug-18 14:29:42.528 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:42.528 [Task submitter] INFO  nextflow.Session - [ad/d9bab0] Submitted process > FILTER_REF_ALT (chr18)
+Aug-18 14:29:42.587 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: FILTER_REF_ALT (chr14); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/21/a7571292a1ca356ead61a106aafaae]
+Aug-18 14:29:42.597 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:42.597 [Task submitter] INFO  nextflow.Session - [4d/f77b1d] Submitted process > FILTER_REF_ALT (chr20)
+Aug-18 14:29:43.377 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: FILTER_REF_ALT (chr15); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/3a/6e56173020ca72b56abed521f6aaa2]
+Aug-18 14:29:43.396 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:43.397 [Task submitter] INFO  nextflow.Session - [b9/ee2f86] Submitted process > FILTER_REF_ALT (chr16)
+Aug-18 14:29:44.117 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: FILTER_REF_ALT (chr10); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/1b/c45790b60f7e5aff08ac85e07f8455]
+Aug-18 14:29:44.124 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:44.124 [Task submitter] INFO  nextflow.Session - [e9/ee94d1] Submitted process > FILTER_REF_ALT (chr19)
+Aug-18 14:29:44.736 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: FILTER_REF_ALT (chr20); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4d/f77b1d3ded91d4a16dfa8175fed09a]
+Aug-18 14:29:44.750 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:44.750 [Task submitter] INFO  nextflow.Session - [13/b3debe] Submitted process > FILTER_REF_ALT (chr22)
+Aug-18 14:29:45.205 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: FILTER_REF_ALT (chr18); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ad/d9bab03215eb6ebe2d88a2307e2904]
+Aug-18 14:29:45.215 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:45.215 [Task submitter] INFO  nextflow.Session - [f7/823e11] Submitted process > FILTER_REF_ALT (chr21)
+Aug-18 14:29:46.036 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: FILTER_REF_ALT (chr19); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/e9/ee94d1429f970222980300d808251f]
+Aug-18 14:29:46.109 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: FILTER_REF_ALT (chr22); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/13/b3debe4f4e5a6189174d28601a2ba3]
+Aug-18 14:29:46.158 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: FILTER_REF_ALT (chr16); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/b9/ee2f862790c98f4ed065cd2fb08514]
+Aug-18 14:29:46.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: FILTER_REF_ALT (chr21); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/f7/823e112780c19de1c2cbb97f49f7cb]
+Aug-18 14:29:46.648 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:29:46.649 [Task submitter] INFO  nextflow.Session - [48/92cc70] Submitted process > FORMAT_DOSAGE (exampleDataset format dosage)
+Aug-18 14:31:40.623 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:36:40.696 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:41:40.793 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:46:40.888 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:51:40.985 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:56:09.277 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: FORMAT_DOSAGE (exampleDataset format dosage); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/48/92cc70e21be5ef5ac573ab1865b982]
+Aug-18 14:56:09.328 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-18 14:56:09.328 [Task submitter] INFO  nextflow.Session - [4c/d84e44] Submitted process > IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood)
+Aug-18 14:56:41.025 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:01:41.038 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:06:41.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:11:41.049 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:16:41.145 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:21:41.234 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:21:42.113 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4c/d84e447e28afb1e508d21f20d7f434]
+Aug-18 15:21:42.116 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-18 15:21:42.215 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Aug-18 15:21:42.215 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-18 15:21:42.221 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Aug-18 15:21:42.233 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=47; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=56m 10s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=5; peakCpus=5; peakMemory=0; ]
+Aug-18 15:21:42.351 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-18 15:21:42.371 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Aug-18 15:21:42.371 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

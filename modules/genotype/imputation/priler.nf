@@ -9,6 +9,7 @@ process IMPUTE_GENOTYPE_PRILER {
         path model_path_prefix
         val covariates_file
         path script_path
+        val dummy_trigger // Dummy trigger to ensure the process runs after FORMAT_DOSAGE
 
     output:
         path "${data_path_prefix}/results/${tissue}/predictedExpression.txt.gz"
@@ -17,7 +18,7 @@ process IMPUTE_GENOTYPE_PRILER {
         """
         mkdir -p "${data_path_prefix}/results/${tissue}"
 
-        ::module load palma/2023b GCC/13.2.0 R/4.4.1
+        module load palma/2023b GCC/13.2.0 R/4.4.1
 
         Rscript ${script_path} \\
             --genoDat_file ${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_ \\

@@ -1,5 +1,5 @@
 # Dockerfile.r
-FROM r-base:4.4.1
+FROM rocker/r-ver:4.4.1
 
 RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
