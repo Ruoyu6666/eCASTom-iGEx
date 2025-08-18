@@ -17,7 +17,7 @@ process IMPUTE_GENOTYPE_PRILER {
         """
         mkdir -p "${data_path_prefix}/results/${tissue}"
 
-        module load palma/2023b GCC/13.2.0 R/4.4.1
+        ::module load palma/2023b GCC/13.2.0 R/4.4.1
 
         Rscript ${script_path} \\
             --genoDat_file ${data_path_prefix}/filtered_dosage/${dataset_name}_filtered_ref_alt_ \\

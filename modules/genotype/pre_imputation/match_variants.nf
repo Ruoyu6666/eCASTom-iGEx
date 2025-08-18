@@ -6,7 +6,6 @@ and a file with the overall match statistics example_match_stats.txt, which cont
 */
 process MATCH_VARIANTS {
     tag "${cohort_name} match variants"
-    //publishDir "${data_path_prefix}/matched", mode: 'copy'
 
     input:
         path data_path_prefix
@@ -26,7 +25,7 @@ process MATCH_VARIANTS {
         """
         mkdir -p "${data_path_prefix}/matched"
 
-        module load palma/2023b GCC/13.2.0 R/4.4.1
+        # module load palma/2023b GCC/13.2.0 R/4.4.1
         
         Rscript ${script_path} \\
             --varInfoFile ${var_info_file_prefix}/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_   \\

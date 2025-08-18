@@ -19,7 +19,7 @@ process FORMAT_DOSAGE {
         """
         mkdir -p "${data_path_prefix}/filtered_dosage"
 
-        module load palma/2023b GCC/13.2.0 R/4.4.1
+        # module load palma/2023b GCC/13.2.0 R/4.4.1
 
         Rscript ${script_path} \\
             --trawFile "${data_path_prefix}/filtered/${dataset_name}_filtered_ref_alt_"\\
