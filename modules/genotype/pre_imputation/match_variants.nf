@@ -5,8 +5,10 @@ The script produces harmonized variant information files Genotype_VariantsInfo_m
 and a file with the overall match statistics example_match_stats.txt, which contains variant filtering details for all chromosomes.
 */
 process MATCH_VARIANTS {
+    label 'r_script'
+    container 'my_r.sif'
     tag "${cohort_name} match variants"
-
+    
     input:
         path data_path_prefix
         val dataset_name
@@ -25,8 +27,6 @@ process MATCH_VARIANTS {
     script:
         """
         mkdir -p "${data_path_prefix}/matched"
-
-        module load palma/2023b GCC/13.2.0 R/4.4.1
         
         Rscript ${script_path} \\
             --varInfoFile ${var_info_file_prefix}/Genotype_VariantsInfo_matched_PGCgwas-CADgwas_   \\

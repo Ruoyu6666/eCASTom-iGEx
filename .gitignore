@@ -1,6 +1,7 @@
+.nextflow.log
 .nextflow.log.*
 work/
 .nextflow/
 nextflow_app.sif
-predict.txt
 *.sif
+others/

@@ -4,6 +4,8 @@ Harmonized variant information files are used to filter the genetic data accordi
 */
 
 process FILTER_REF_ALT {
+    label 'plink'
+    container 'my_plink.sif'
     tag "chr${chr}"
 
     input:

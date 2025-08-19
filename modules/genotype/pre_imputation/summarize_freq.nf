@@ -4,8 +4,9 @@ Calculate allele frequencies for the variants in the .bgen files using PLINK2.
 The outputs are .afrq files for each chromosome with variant frequencies.
 */
 process SUMMARIZE_FREQ {
+    label 'plink'
+    container 'my_plink.sif'
     tag "chr${chr}"
-    //publishDir "${data_path_prefix}/freq", mode: 'copy'
     
     input:
         val chr
