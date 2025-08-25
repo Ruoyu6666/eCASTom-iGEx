@@ -9,17 +9,9 @@ RUN apt-get update && apt-get install -y \
     gzip \
     zlib1g-dev \
     pkg-config \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install blas, lapack, and openblas
-RUN apt-get update && apt-get install -y \
     libblas-dev \
     liblapack-dev \
     libopenblas-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Python and pip. Use gcc-12 and g++-12 for compatibility with R packages that require C++
-RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-dev \
@@ -42,10 +34,8 @@ ENV CC=/usr/bin/gcc-12
 ENV CXX=/usr/bin/g++-12
 
 # Set up Python environment
-RUN ln -s /usr/bin/python3 /usr/bin/python
-
-# Install Python packages
-RUN pip3 install argparse simplejson
+RUN ln -s /usr/bin/python3 /usr/bin/python && \
+    pip3 install argparse simplejson
 
 # Install required R packages
 COPY /src/install_requirements.R /tmp/install_requirements.R
