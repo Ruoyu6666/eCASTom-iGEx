@@ -1,7 +1,5 @@
 #!/usr/bin/env Rscript
 
-.libPaths("~/R/library")
-
 options(stringsAsFactors=F)
 options(max.print=1000)
 suppressPackageStartupMessages(library(argparse))
