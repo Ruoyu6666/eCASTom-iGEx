@@ -40,24 +40,18 @@ Rscript ${path_to_castom_folder}/install_requirements.R
 ```
 
 
-
 Search for the specified software and give you instructions how to load it into your environment.
 ```bash
 module spider nextflow
 ```
-
 Before the "Nextflow/24.04.2" module is available to load, load palma/2024a
 ```bash
 module load palma/2024a Nextflow/24.04.2
 ```
 
-......
-
-
 ```bash
 salloc -c $N_cpus --mem-per-cpu $memory_per_cpu -p normal -t 02:00:00
 ```
-
 
 
 
@@ -82,8 +76,6 @@ for c in {1..22}; do
 done
 ```
 
-
-
 ```bash
 Rscript /home/r/rguo/scripts/CASTom-iGEx/Software/model_prediction/formatGenotypeDosage.R \
   --trawFile "${path_to_data}/exampleDataset_filtered_ref_alt_" \
@@ -93,7 +85,6 @@ Rscript /home/r/rguo/scripts/CASTom-iGEx/Software/model_prediction/formatGenotyp
   --outDosageFold "${path_to_data}"
 ```
 
-
 ```bash
 Rscript /home/r/rguo/scripts/CASTom-iGEx/Software/model_prediction/PriLer_predictGeneExp_run.R \
   --genoDat_file "${path_to_data}/exampleDataset_filtered_ref_alt_" \
@@ -102,7 +93,6 @@ Rscript /home/r/rguo/scripts/CASTom-iGEx/Software/model_prediction/PriLer_predic
   --outTrain_fold "/scratch/tmp/rguo/PRILER_TRAINED_MODELS_2023/GTEx/tissues/Whole_Blood/" \
   --InfoFold "/scratch/tmp/rguo/PRILER_TRAINED_MODELS_2023/GTEx/tissues/Whole_Blood/"
 ```
-
 
 ## Run on example dataset with nextflow
 ```bash
@@ -116,8 +106,19 @@ nextflow run main.nf -profile docker \
   --results_dir "/results" \
   --tissue "Whole_Blood"
 ```
-```bash
-module load palma/2022b Java/17.0.6
-nextflow run main.nf
-```
 
+## Run on container (apptainer)
+Ensure that Apptainer and Nextflow are installed.
+
+```bash on HPC
+module load Apptainer/1.2.5           # load Apptainer
+module load palma/2022b Java/17.0.6   # load what necessary for install & run Nextflow
+```
+Nextflow installation guide: https://www.nextflow.io/docs/latest/install.html# 
+```bash
+```
+```bash
+apptainer pull my_plink.sif docker://ruoyu666/castom-plink:1.0
+apptainer pull my_r.sif docker://ruoyu666/castom-r:1.0
+nextflow run main.nf -c nextflow.config
+```
