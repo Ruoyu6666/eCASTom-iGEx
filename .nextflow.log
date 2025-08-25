@@ -1,146 +1,83 @@
-Aug-19 11:25:12.306 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -c nextflow.config
-Aug-19 11:25:12.490 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
-Aug-19 11:25:12.584 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/r/rguo/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
-Aug-19 11:25:12.633 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Aug-19 11:25:12.647 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Aug-19 11:25:12.653 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Aug-19 11:25:12.684 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Aug-19 11:25:12.765 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/r/rguo/scripts/eCASTom/nextflow.config
-Aug-19 11:25:12.770 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/r/rguo/scripts/eCASTom/nextflow.config
-Aug-19 11:25:12.774 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/r/rguo/scripts/eCASTom/nextflow.config
-Aug-19 11:25:12.775 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/r/rguo/scripts/eCASTom/nextflow.config
-Aug-19 11:25:12.876 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/r/rguo/.nextflow/secrets/store.json
-Aug-19 11:25:12.881 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6a4d7f76] - activable => nextflow.secret.LocalSecretsProvider@6a4d7f76
-Aug-19 11:25:12.909 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Aug-19 11:25:14.098 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Aug-19 11:25:14.229 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Aug-19 11:25:14.263 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [gigantic_stone] DSL2 - revision: 380fd6a9d2
-Aug-19 11:25:14.267 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Aug-19 11:25:14.267 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Aug-19 11:25:14.385 [main] DEBUG nextflow.Session - Session UUID: fce52586-9e1c-49f1-bba8-21f16e14f109
-Aug-19 11:25:14.386 [main] DEBUG nextflow.Session - Run name: gigantic_stone
-Aug-19 11:25:14.386 [main] DEBUG nextflow.Session - Executor pool size: 2
-Aug-19 11:25:14.409 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Aug-19 11:25:14.423 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Aug-19 11:25:14.476 [main] DEBUG nextflow.cli.CmdRun - 
+Aug-25 09:23:01.862 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -c nextflow.config
+Aug-25 09:23:02.054 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Aug-25 09:23:02.089 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/r/rguo/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Aug-25 09:23:02.116 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-25 09:23:02.117 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-25 09:23:02.120 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-25 09:23:02.138 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-25 09:23:02.179 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-25 09:23:02.182 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-25 09:23:02.186 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-25 09:23:02.187 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/r/rguo/scripts/eCASTom/nextflow.config
+Aug-25 09:23:02.242 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/r/rguo/.nextflow/secrets/store.json
+Aug-25 09:23:02.251 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2e1792e7] - activable => nextflow.secret.LocalSecretsProvider@2e1792e7
+Aug-25 09:23:02.258 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-25 09:23:02.961 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-25 09:23:03.023 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Aug-25 09:23:03.039 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [golden_panini] DSL2 - revision: 39b20b9d83
+Aug-25 09:23:03.041 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-25 09:23:03.041 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-25 09:23:03.102 [main] DEBUG nextflow.Session - Session UUID: d795267b-c342-41ec-a12c-66f4966eeb3d
+Aug-25 09:23:03.103 [main] DEBUG nextflow.Session - Run name: golden_panini
+Aug-25 09:23:03.104 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-25 09:23:03.111 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-25 09:23:03.121 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-25 09:23:03.143 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.6 build 5954
   Created: 01-07-2025 11:27 UTC (13:27 CEST)
   System: Linux 5.14.0-427.33.1.el9_4.x86_64
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.6+10
   Encoding: UTF-8 (UTF-8)
-  Process: 374535@r01n16 [10.116.33.16]
-  CPUs: 1 - Mem: 93.1 GB (67 GB) - Swap: 0 (0)
-Aug-19 11:25:14.525 [main] DEBUG nextflow.Session - Work-dir: /home/r/rguo/scripts/eCASTom/work [gpfs]
-Aug-19 11:25:14.526 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/r/rguo/scripts/eCASTom/bin
-Aug-19 11:25:14.536 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Aug-19 11:25:14.572 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Aug-19 11:25:14.580 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Aug-19 11:25:14.628 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Aug-19 11:25:14.659 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 2; maxThreads: 1000
-Aug-19 11:25:14.767 [main] DEBUG nextflow.Session - Session start
-Aug-19 11:25:15.198 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Aug-19 11:25:16.589 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Aug-19 11:25:16.590 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Aug-19 11:25:16.600 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Aug-19 11:25:16.622 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=1; memory=93.1 GB; capacity=1; pollInterval=100ms; dumpInterval=5m
-Aug-19 11:25:16.625 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Aug-19 11:25:16.699 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SUMMARIZE_FREQ': maxForks=0; fair=false; array=0
-Aug-19 11:25:16.914 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Aug-19 11:25:16.914 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Aug-19 11:25:16.915 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MATCH_VARIANTS': maxForks=0; fair=false; array=0
-Aug-19 11:25:16.972 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Aug-19 11:25:16.972 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Aug-19 11:25:16.973 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FILTER_REF_ALT': maxForks=0; fair=false; array=0
-Aug-19 11:25:17.036 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Aug-19 11:25:17.037 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Aug-19 11:25:17.039 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FORMAT_DOSAGE': maxForks=0; fair=false; array=0
-Aug-19 11:25:17.093 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Aug-19 11:25:17.093 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Aug-19 11:25:17.096 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'IMPUTE_GENOTYPE_PRILER': maxForks=0; fair=false; array=0
-Aug-19 11:25:17.121 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: IMPUTE_GENOTYPE_PRILER, FILTER_REF_ALT, SUMMARIZE_FREQ, FORMAT_DOSAGE, MATCH_VARIANTS
-Aug-19 11:25:17.150 [main] WARN  nextflow.Session - There's no process matching config selector: run_plink
-Aug-19 11:25:17.151 [main] WARN  nextflow.Session - There's no process matching config selector: run_r_script
-Aug-19 11:25:17.167 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
-Aug-19 11:25:17.168 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SUMMARIZE_FREQ
-Aug-19 11:25:17.193 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MATCH_VARIANTS
-Aug-19 11:25:17.218 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FILTER_REF_ALT
-Aug-19 11:25:17.244 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FORMAT_DOSAGE
-Aug-19 11:25:17.244 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > IMPUTE_GENOTYPE_PRILER
-Aug-19 11:25:17.265 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Process: 2369960@r01n31 [10.116.33.31]
+  CPUs: 2 - Mem: 93.1 GB (66.8 GB) - Swap: 0 (0)
+Aug-25 09:23:03.172 [main] DEBUG nextflow.Session - Work-dir: /home/r/rguo/scripts/eCASTom/work [gpfs]
+Aug-25 09:23:03.172 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/r/rguo/scripts/eCASTom/bin
+Aug-25 09:23:03.182 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-25 09:23:03.192 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-25 09:23:03.202 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Aug-25 09:23:03.241 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-25 09:23:03.254 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 3; maxThreads: 1000
+Aug-25 09:23:03.324 [main] DEBUG nextflow.Session - Session start
+Aug-25 09:23:03.546 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-25 09:23:04.327 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-25 09:23:04.330 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-25 09:23:04.336 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-25 09:23:04.345 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=93.1 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Aug-25 09:23:04.349 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Aug-25 09:23:04.385 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'IMPUTE_GENOTYPE_PRILER': maxForks=0; fair=false; array=0
+Aug-25 09:23:04.453 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: IMPUTE_GENOTYPE_PRILER, SUMMARIZE_FREQ, FILTER_REF_ALT, FORMAT_DOSAGE, MATCH_VARIANTS
+Aug-25 09:23:04.473 [main] WARN  nextflow.Session - There's no process matching config selector: run_plink
+Aug-25 09:23:04.475 [main] WARN  nextflow.Session - There's no process matching config selector: run_r_script
+Aug-25 09:23:04.477 [main] DEBUG nextflow.Session - Igniting dataflow network (2)
+Aug-25 09:23:04.479 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > IMPUTE_GENOTYPE_PRILER
+Aug-25 09:23:04.481 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_5265261b109bc70d: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/summarize_freq.nf
   Script_fab79a2f60391d01: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/format_dosage.nf
   Script_1a38d794fdf628e1: /home/r/rguo/scripts/eCASTom/modules/genotype/imputation/priler.nf
   Script_a350625ec749b0c1: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/filter_ref_alt.nf
-  Script_36100c52dc966daa: /home/r/rguo/scripts/eCASTom/main.nf
+  Script_6ad9073a18e0744e: /home/r/rguo/scripts/eCASTom/main.nf
   Script_009f6390fe14d7f8: /home/r/rguo/scripts/eCASTom/modules/genotype/pre_imputation/match_variants.nf
-Aug-19 11:25:17.267 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Aug-19 11:25:17.267 [main] DEBUG nextflow.Session - Session await
-Aug-19 11:25:17.786 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:17.799 [Task submitter] INFO  nextflow.Session - [58/0d9140] Submitted process > SUMMARIZE_FREQ (chr2)
-Aug-19 11:25:19.166 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: SUMMARIZE_FREQ (chr2); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/58/0d914068bd928385a06dbf28cab092]
-Aug-19 11:25:19.174 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Aug-19 11:25:19.186 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:19.206 [Task submitter] INFO  nextflow.Session - [ff/795619] Submitted process > SUMMARIZE_FREQ (chr1)
-Aug-19 11:25:20.599 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: SUMMARIZE_FREQ (chr1); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ff/7956198d097399fe7c84302510bbe2]
-Aug-19 11:25:20.609 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:20.610 [Task submitter] INFO  nextflow.Session - [94/0a6608] Submitted process > SUMMARIZE_FREQ (chr3)
-Aug-19 11:25:21.500 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: SUMMARIZE_FREQ (chr3); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/94/0a660847fbf9d9711a22846dc8a326]
-Aug-19 11:25:21.526 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:21.526 [Task submitter] INFO  nextflow.Session - [71/9b133c] Submitted process > SUMMARIZE_FREQ (chr4)
-Aug-19 11:25:22.424 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: SUMMARIZE_FREQ (chr4); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/71/9b133c11586899f887e62644231dd9]
-Aug-19 11:25:22.450 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:22.450 [Task submitter] INFO  nextflow.Session - [af/9a94e2] Submitted process > SUMMARIZE_FREQ (chr6)
-Aug-19 11:25:23.248 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: SUMMARIZE_FREQ (chr6); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/af/9a94e2f564da9f4e4700f66a7dbe29]
-Aug-19 11:25:23.268 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:23.268 [Task submitter] INFO  nextflow.Session - [11/fad31c] Submitted process > SUMMARIZE_FREQ (chr5)
-Aug-19 11:25:24.074 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: SUMMARIZE_FREQ (chr5); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/11/fad31c9c5cb847c55687ad216d105f]
-Aug-19 11:25:24.096 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:24.096 [Task submitter] INFO  nextflow.Session - [bc/4dee01] Submitted process > SUMMARIZE_FREQ (chr7)
-Aug-19 11:25:24.975 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: SUMMARIZE_FREQ (chr7); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/bc/4dee017f67822db4f27e82ec94b7b1]
-Aug-19 11:25:24.990 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:24.991 [Task submitter] INFO  nextflow.Session - [fe/c37476] Submitted process > SUMMARIZE_FREQ (chr8)
-Aug-19 11:25:25.800 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: SUMMARIZE_FREQ (chr8); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/fe/c37476f1cc7141fce5bf6d41695c3a]
-Aug-19 11:25:25.819 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:25.821 [Task submitter] INFO  nextflow.Session - [70/b44afd] Submitted process > SUMMARIZE_FREQ (chr9)
-Aug-19 11:25:26.769 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: SUMMARIZE_FREQ (chr9); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/70/b44afd1b9b8ed48c48e177b065e449]
-Aug-19 11:25:26.785 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:26.785 [Task submitter] INFO  nextflow.Session - [56/c33ec1] Submitted process > SUMMARIZE_FREQ (chr10)
-Aug-19 11:25:27.557 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: SUMMARIZE_FREQ (chr10); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/56/c33ec1b361f3c4b1d3c6fc550abffb]
-Aug-19 11:25:27.569 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:27.570 [Task submitter] INFO  nextflow.Session - [12/404faa] Submitted process > SUMMARIZE_FREQ (chr11)
-Aug-19 11:25:28.314 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: SUMMARIZE_FREQ (chr11); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/12/404faa1fdc8b6c452e0955f3eb5d56]
-Aug-19 11:25:28.340 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:28.340 [Task submitter] INFO  nextflow.Session - [97/d1d83e] Submitted process > SUMMARIZE_FREQ (chr12)
-Aug-19 11:25:29.075 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: SUMMARIZE_FREQ (chr12); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/97/d1d83e835011ae43430824ba3aa228]
-Aug-19 11:25:29.103 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:29.104 [Task submitter] INFO  nextflow.Session - [28/bcaf31] Submitted process > SUMMARIZE_FREQ (chr13)
-Aug-19 11:25:29.809 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: SUMMARIZE_FREQ (chr13); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/28/bcaf31ef195ed02ac4745f41cc6aec]
-Aug-19 11:25:29.829 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:29.830 [Task submitter] INFO  nextflow.Session - [02/511b17] Submitted process > SUMMARIZE_FREQ (chr14)
-Aug-19 11:25:30.524 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: SUMMARIZE_FREQ (chr14); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/02/511b17eacbdd6b1d08e69ccf0f4ae4]
-Aug-19 11:25:30.548 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:30.548 [Task submitter] INFO  nextflow.Session - [d1/611b17] Submitted process > SUMMARIZE_FREQ (chr15)
-Aug-19 11:25:31.252 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: SUMMARIZE_FREQ (chr15); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/d1/611b17b49aca50a4eef49ddf17acf7]
-Aug-19 11:25:31.266 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:31.267 [Task submitter] INFO  nextflow.Session - [64/ad210d] Submitted process > SUMMARIZE_FREQ (chr17)
-Aug-19 11:25:31.907 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: SUMMARIZE_FREQ (chr17); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/64/ad210d7761556e1809caf646498e85]
-Aug-19 11:25:31.921 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:31.922 [Task submitter] INFO  nextflow.Session - [4d/cb4919] Submitted process > SUMMARIZE_FREQ (chr16)
-Aug-19 11:25:32.624 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: SUMMARIZE_FREQ (chr16); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/4d/cb4919cb9f650a2c5be8f120f96f2f]
-Aug-19 11:25:32.637 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:32.637 [Task submitter] INFO  nextflow.Session - [a8/7927b8] Submitted process > SUMMARIZE_FREQ (chr18)
-Aug-19 11:25:33.368 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: SUMMARIZE_FREQ (chr18); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/a8/7927b8d76c833e5c88773506aa299b]
-Aug-19 11:25:33.377 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:33.377 [Task submitter] INFO  nextflow.Session - [ab/97520a] Submitted process > SUMMARIZE_FREQ (chr20)
-Aug-19 11:25:34.013 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: SUMMARIZE_FREQ (chr20); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/ab/97520aa8b80f76f4f785fc141946f1]
-Aug-19 11:25:34.034 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:34.035 [Task submitter] INFO  nextflow.Session - [7d/ddacc4] Submitted process > SUMMARIZE_FREQ (chr19)
-Aug-19 11:25:34.905 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: SUMMARIZE_FREQ (chr19); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/7d/ddacc4412739a2db98f55902564c1a]
-Aug-19 11:25:34.922 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:34.922 [Task submitter] INFO  nextflow.Session - [7c/227cfc] Submitted process > SUMMARIZE_FREQ (chr21)
-Aug-19 11:25:35.531 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: SUMMARIZE_FREQ (chr21); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/7c/227cfc48b0ba3b939ada75cb94560a]
-Aug-19 11:25:35.549 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:35.549 [Task submitter] INFO  nextflow.Session - [6f/de8504] Submitted process > SUMMARIZE_FREQ (chr22)
-Aug-19 11:25:36.159 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: SUMMARIZE_FREQ (chr22); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/6f/de8504535890e27d1249d123e30ba9]
-Aug-19 11:25:36.218 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Aug-19 11:25:36.219 [Task submitter] INFO  nextflow.Session - [35/9ae596] Submitted process > MATCH_VARIANTS (example match variants)
+Aug-25 09:23:04.481 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-25 09:23:04.481 [main] DEBUG nextflow.Session - Session await
+Aug-25 09:23:04.783 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-25 09:23:04.785 [Task submitter] INFO  nextflow.Session - [87/a87b53] Submitted process > IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood)
+Aug-25 09:28:04.473 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:33:04.557 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:38:04.575 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:43:04.644 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:48:04.696 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: RUNNING; exit: -; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:52:42.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: IMPUTE_GENOTYPE_PRILER (impute genotype with PRILER for Whole_Blood); status: COMPLETED; exit: 0; error: -; workDir: /home/r/rguo/scripts/eCASTom/work/87/a87b53535ceb29ecd3370919297edf]
+Aug-25 09:52:42.632 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-25 09:52:42.683 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-25 09:52:42.729 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Aug-25 09:52:42.730 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-25 09:52:42.733 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Aug-25 09:52:42.741 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=29m 38s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Aug-25 09:52:42.819 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-25 09:52:42.844 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Aug-25 09:52:42.844 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

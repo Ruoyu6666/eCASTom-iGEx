@@ -33,7 +33,7 @@ workflow {
         channel_freq.collect()  
     )
 
-    
+   
     // Step 3: Filter genetic data using harmonized variant information.
     channel_filter = FILTER_REF_ALT(
         chr,
@@ -42,7 +42,7 @@ workflow {
         "${params.data_path_prefix}/matched",
         channel_match.harmonized_info.collect()
     )
-    
+
 
     // Step 4: Format dosage files for PRILER
     channel_format =FORMAT_DOSAGE(
