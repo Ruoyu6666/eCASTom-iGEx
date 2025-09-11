@@ -3,8 +3,17 @@ This repository provides a processing pipeline for genotype imputation using Pri
 It is based on the [CASTom-iGEx genetic data processing guide](https://github.com/zillerlab/CASTom-iGEx/wiki/Processing-genetic-data-to-work-with-CASTom%E2%80%90iGEx)
 
 ## Preparation
-### Nextflow
-Install Nextflow by following the [installation guide](https://www.nextflow.io/docs/latest/install.html) 
+### Install Nextflow
+
+Load dependencies necessary to install & run Nextflow
+```bash
+module load palma/2022b Java/17.0.6
+```
+
+Install Nextflow by following the [installation guide](https://www.nextflow.io/docs/latest/install.html). In the end, make sure to move Nextflow into an executable path. 
+```bash
+mv nextflow ~/bin
+```
 
 ### Build Docker Images
 Ensure that Docker is installed and build the images locally on your own PC:
@@ -20,7 +29,7 @@ docker push pipeline/castom-r:1.0
 ```
 
 ## Run the pipeline on example dataset with Nextflow on container (Apptainer)
-Ensure that Apptainer and Nextflow are installed. The pipeline uses multiple containers to perform the preprocessing and imputation. These containers can be pulled directly from Docker Hub.
+Ensure that Nextflow is installed. The pipeline uses multiple containers to perform the preprocessing and imputation. These containers can be pulled directly from Docker Hub.
 Load required modules on HPC:
 ```bash 
 module load Apptainer/1.2.5           # load Apptainer
