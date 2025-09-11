@@ -3,15 +3,11 @@ This repository provides a processing pipeline for genotype imputation using Pri
 It is based on the [CASTom-iGEx genetic data processing guide](https://github.com/zillerlab/CASTom-iGEx/wiki/Processing-genetic-data-to-work-with-CASTom%E2%80%90iGEx)
 
 ## Preparation
-When working on Palma, load Nextflow/24.04.2 module and the required dependencies:
-```bash
-module --force purge  # Clean the environment on HPC at the beginning
-module load palma/2024a Nextflow/24.04.2
-```
-Alternatively (recommended), instead of loading the nextflow module, install Nextflow by following the [installation guide](https://www.nextflow.io/docs/latest/install.html) 
+### Nextflow
+Install Nextflow by following the [installation guide](https://www.nextflow.io/docs/latest/install.html) 
 
-## Build Docker Images
-Ensure that Docker is installed and build the images locally:
+### Build Docker Images
+Ensure that Docker is installed and build the images locally on your own PC:
 
 ```bash
 docker build -f Dockerfile.plink -t pipeline/castom-plink:1.0 .
