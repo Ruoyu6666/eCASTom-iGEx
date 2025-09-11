@@ -24,6 +24,7 @@ docker build -f Dockerfile.r -t pipeline/castom-r:1.0 .
 ```
 On HPC users usually have no root privilege and therefore cannot install Docker. To solve this, one can build the images locally on PC as shown above and then push the images to Docker Hub. Later, pull the images as Apptainer/Singularity files in the HPC environment:
 ```bash
+# push the images to Docker Hub
 docker push pipeline/castom-plink:1.0
 docker push pipeline/castom-r:1.0
 ```
