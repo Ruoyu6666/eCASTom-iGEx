@@ -1,24 +1,21 @@
 # Processing pipeline for genotype imputation with Priler
-Based on https://github.com/zillerlab/CASTom-iGEx/wiki/Processing-genetic-data-to-work-with-CASTom%E2%80%90iGEx
+This repository provides a processing pipeline for genotype imputation using PriLer, managed with Nextflow.
+It is based on the [CASTom-iGEx genetic data processing guide](https://github.com/zillerlab/CASTom-iGEx/wiki/Processing-genetic-data-to-work-with-CASTom%E2%80%90iGEx)
 
 ## Preparation
-First time
 ```bash
 mkdir -p ~/R/library
-export R_LIBS_USER=" ~/R-4.2.2/library"
+export R_LIBS_USER=" ~/R/library"
 ```
 
 Install plink
 ```bash
 mkdir -p ~/tools
 cd -p ~/tools
-```
 
-```bash
 wget https://s3.amazonaws.com/plink2-assets/plink2_linux_avx2_20250707.zip
 unzip plink2_linux_avx2_20250707.zip
-```
-```bash
+
 mkdir -p ~/bin
 cd -p ~/bin
 ln -s ~/tools/plink2 plink2
@@ -29,7 +26,7 @@ Clean the environment at the beginning:
 module --force purge
 ```
 
-load
+Load R
 ```bash
 module load palma/2023b GCC/13.2.0 R/4.4.1
 ```
@@ -38,8 +35,6 @@ First time install requirements with custom script
 ```bash
 Rscript ${path_to_castom_folder}/install_requirements.R 
 ```
-
-
 
 Search for the specified software and give you instructions how to load it into your environment.
 ```bash
@@ -51,14 +46,11 @@ Before the "Nextflow/24.04.2" module is available to load, load palma/2024a
 module load palma/2024a Nextflow/24.04.2
 ```
 
-......
-
+## Run on example dataset 
 
 ```bash
 salloc -c $N_cpus --mem-per-cpu $memory_per_cpu -p normal -t 02:00:00
 ```
-
-
 
 
 ```bash
@@ -71,6 +63,7 @@ Rscript /home/r/rguo/scripts/CASTom-iGEx/Software/model_prediction/matchGenotype
   --outInfoFold "/scratch/tmp/rguo/castom-example/"
 ```
 
+
 ```bash
 for c in {1..22}; do 
   plink2 \
@@ -81,7 +74,6 @@ for c in {1..22}; do
     --out "${path_to_data}/exampleDataset_filtered_ref_alt_chr${c}"
 done
 ```
-
 
 
 ```bash
@@ -116,6 +108,7 @@ nextflow run main.nf -profile docker \
   --results_dir "/results" \
   --tissue "Whole_Blood"
 ```
+
 ```bash
 module load palma/2022b Java/17.0.6
 nextflow run main.nf
