@@ -16,19 +16,17 @@ mv nextflow ~/bin
 ```
 
 ### Build Docker Images
-Ensure that Docker is installed and build the images locally on your own PC:
-
+On HPC users usually have no root privilege and therefore cannot install Docker. To solve this, one can build the images locally on PC as shown above and then push the images to Docker Hub. Ensure that Docker is installed and create a Docker Hub account: 
 ```bash
+# Build the image locally on your own PC
 docker build -f Dockerfile.plink -t pipeline/castom-plink:1.0 .
 docker build -f Dockerfile.r -t pipeline/castom-r:1.0 .
-```
-On HPC users usually have no root privilege and therefore cannot install Docker. To solve this, one can build the images locally on PC as shown above and then push the images to Docker Hub. Later, pull the images as Apptainer/Singularity files in the HPC environment:
-```bash
-# push the images to Docker Hub
+
+# Push the images to Docker Hub:
 docker push pipeline/castom-plink:1.0
 docker push pipeline/castom-r:1.0
 ```
-
+Later, pull the images as Apptainer/Singularity files in the HPC environment:
 ## Run the pipeline on example dataset with Nextflow on container (Apptainer)
 Ensure that Nextflow is installed. The pipeline uses multiple containers to perform the preprocessing and imputation. These containers can be pulled directly from Docker Hub.
 Load required modules on HPC:
